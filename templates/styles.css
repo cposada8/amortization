@@ -1,0 +1,41 @@
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #333;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Estilos para los valores de dinero */
+td.currency {
+    font-weight: bold;
+}
+
+/* Estilos para la primera columna (Número de Cuota) */
+td:first-child {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para el encabezado de la tabla */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el formulario */
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}

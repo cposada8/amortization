@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generador de Plan de Pagos</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Generador de Plan de Pagos</h1>
+    <form method="POST">
+        Monto del préstamo: <input type="number" name="monto"><br>
+        Tasa de interés (%): <input type="number" name="tasa_interes" step="0.01"><br>
+        Plazo (meses): <input type="number" name="plazo"><br>
+        <input type="submit" value="Generar Plan"> 
+    </form>
+    {% if plan_pagos %}
+    <h2>Plan de Pagos:</h2>
+    <table>
+        <tr>
+            <th>Número de Cuota</th>
+            <th>Monto de Cuota</th>
+            <th>Interés de Cuota</th>
+            <th>Saldo Pendiente</th>
+        </tr>
+        {% for pago in plan_pagos %}
+        <tr>
+            <td>{{ pago.numero_cuota }}</td>
+            <td>{{ pago.monto_cuota|currency }}</td>
+            <td>{{ pago.interes_cuota|currency }}</td>
+            <td>{{ pago.saldo_pendiente|currency }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
