@@ -16,17 +16,19 @@
     <h2>Plan de Pagos:</h2>
     <table>
         <tr>
-            <th>Número de Cuota</th>
-            <th>Monto de Cuota</th>
-            <th>Interés de Cuota</th>
-            <th>Saldo Pendiente</th>
+            <th>número de Cuota</th>
+            <th>valor cuota</th>
+            <th>intereses cuota</th>
+            <th>capital cuota</th>
+            <th>saldo restante</th>
         </tr>
         {% for pago in plan_pagos %}
         <tr>
             <td>{{ pago.numero_cuota }}</td>
-            <td>{{ pago.monto_cuota|currency }}</td>
-            <td>{{ pago.interes_cuota|currency }}</td>
-            <td>{{ pago.saldo_pendiente|currency }}</td>
+            <td>{{ pago.valor_cuota|currency }}</td>
+            <td>{{ pago.intereses_cuota|currency }}</td>
+            <td>{{ pago.capital_cuota|currency }}</td>
+            <td>{{ pago.saldo_restante|currency }}</td>
         </tr>
         {% endfor %}
     </table>

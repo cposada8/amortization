@@ -25,22 +25,24 @@ def calcular_plan_pagos(monto, tasa_interes, plazo):
     # en el cual no hay cuota ni intereses, sólo el saldo inicial
     pagos.append({
         "numero_cuota": 0,
-        "monto_cuota": 0,
-        "interes_cuota": 0,
-        "saldo_pendiente": monto
+        "valor_cuota": 0,
+        "intereses_cuota": 0,
+        "capital_cuota": 0,
+        "saldo_restante": monto
     })
     # se agrega el plan de pagos
     for i in range(plazo):
         pago_anterior = pagos[-1]
-        saldo_anterior = pago_anterior['saldo_pendiente']
+        saldo_anterior = pago_anterior['saldo_restante']
         intereses_cuota = saldo_anterior*tasa_interes
         capital_cuota = valor_cuota - intereses_cuota
-        saldo_pendiente = saldo_anterior - capital_cuota
+        saldo_restante = saldo_anterior - capital_cuota
         pago = {
             "numero_cuota": i + 1,
-            "monto_cuota": valor_cuota,
-            "interes_cuota": intereses_cuota,
-            "saldo_pendiente": saldo_pendiente
+            "valor_cuota": valor_cuota,
+            "intereses_cuota": intereses_cuota,
+            "capital_cuota":capital_cuota,
+            "saldo_restante": saldo_restante
         }
         pagos.append(pago)
     return pagos
